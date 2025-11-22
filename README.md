@@ -21,8 +21,10 @@ This project demonstrates a complete banking transaction data pipeline using Max
 Simulated banking transactions including:
 - transaction_id, account_id, account_type, transaction_amount
 - transaction_type, transaction_time, region
-  
-### Project Structure
+
+---
+
+## Project Structure
 | Folder / File         | Description                                           |
 |-----------------------|-------------------------------------------------------|
 | `raw_data/`           | sample raw transaction data                           |
@@ -33,7 +35,7 @@ Simulated banking transactions including:
 
 ---
 
-### Data Pipeline Overview
+## Data Pipeline Overview
 1. **ODS (Raw Data Layer)**  
    - Store raw transactions uploaded from CSV or external sources.
    - Partitioned by dt (transaction date)
