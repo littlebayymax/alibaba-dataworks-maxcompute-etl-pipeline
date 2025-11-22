@@ -1,103 +1,80 @@
 # alibaba-dataworks-maxcompute-etl-pipeline
 End-to-end cloud ETL project using Alibaba Cloud OSS, DataWorks, MaxCompute, and Hologres.
 
-## Cloud ETL Pipeline (Alibaba Cloud)
-This project demonstrates an end-to-end Cloud ETL pipeline built on Alibaba Cloud OSS, DataWorks, MaxCompute, and Hologres.  
-It simulates a real data engineering workflow used in production environments.
+## Project Overview - Cloud ETL Pipeline (Alibaba Cloud) 
+This project demonstrates a complete banking transaction data pipeline using MaxCompute, DataWorks, and Hologres. The pipeline processes raw transaction data, performs data cleaning and transformation, builds a structured data warehouse, and generates real-time KPIs for analysis. It is designed to showcase production-ready data engineering skills suitable for Singapore’s financial industry.
 
-## Architecture Overview
-Data Source → OSS → MaxCompute ODS → MaxCompute DWD → MaxCompute DWS → Hologres  
+--- 
 
-This pipeline includes:  
-- Batch ingestion from OSS  
-- Scheduled workflows via DataWorks  
-- MaxCompute SQL transformation (ODS → DWD → DWS)  
-- Real-time serving using Hologres
+### Key Objectives:
+1. Process raw banking transactions (ODS layer).
+2. Clean and standardize data (DWD layer).
+3. Build fact tables and dimension tables for analysis (DWS layer).
+4. Support real-time analytics with Hologres.
+5. Automate ETL workflows using DataWorks.
+
+---
+
+## Tech Stack
+- Data Storage & Processing: MaxCompute (ODS/DWD/DWS)
+- Real-Time Analytics: Hologres
+- ETL Orchestration: DataWorks DAG
+- SQL & Partitioning: MaxCompute SQL, partitioned by transaction date (dt)
+- Visualization: Jupyter Notebook with SQL analysis or optional Tableau / Superset
+
+---
+
+## Data Source
+Simulated banking transactions including:
+- transaction_id, account_id, account_type, transaction_amount
+- transaction_type, transaction_time, region
 
 ---
   
 ### Project Structure
-| Folder / File   | Description                                           |
-|-----------------|-------------------------------------------------------|
-| `data/`         | Sample raw CSV files for testing the ETL pipeline    |
-| `sql/`          | MaxCompute SQL scripts (ODS, DWD, DWS)              |
-| `dataworks/`    | DataWorks workflow definitions and JSON exports     |
-| `images/`       | Architecture diagrams and visuals                   |
-| `README.md`     | Project documentation                                |
-
-
----
-
-### Data Flow Explanation
-1. **Raw Data (OSS)**  
-   Raw files such as:  
-   - orders.csv  
-   - customers.csv  
-   - transactions.csv  
-   Stored under: `oss://project-bucket/raw/orders/`
-
-2. **ODS Layer (Operational Data Store)**  
-   Example:
-   ```sql
-   CREATE TABLE ods_orders (
-       order_id STRING,
-       customer_id STRING,
-       amount DOUBLE,
-       created_at DATETIME
-   );
-
-3. **DWD Layer (Data Warehouse Detail)**
-   Example:
-   ```sql
-   CREATE TABLE dwd_orders AS
-   		SELECT
-   			order_id,
-   			customer_id,
-   			amount,
-   			DATE(created_at) AS order_date
-   		FROM ods_orders;
-
-4. **DWS Layer (Data Warehouse Summary)**
-   Example:
-   ```sql
-   CREATE TABLE dws_daily_gmv AS
-   		SELECT
-   			order_date,
-   			SUM(amount) AS gmv
-   		FROM dwd_orders
-   		GROUP BY order_date;
+| Folder / File         | Description                                           |
+|-----------------------|-------------------------------------------------------|
+| `raw_data/`           | transactions.csv # raw transaction data               |
+| `dataworks_projects/` | MaxCompute SQL scripts (ODS, DWD, DWS)                |
+| `hologres/`           | hologres_daily_transactions.sql                       |
+| `notebooks/`          | transaction_kpi_analysis.ipynb                        |
+| `README.md`           | Project documentation                                 |
 
 ---
 
-### Technologies Used
-- OSS - raw file storage
-- DataWorks - workflow orchestration and scheduling
-- MaxCompute - data warehouse + SQL transformation
-- Hologres - real-time analytics serving
+### Data Pipeline Overview
+1. **ODS (Raw Data Layer)**  
+   - Store raw transactions uploaded from CSV or external sources.
+   - Partitioned by dt (transaction date)
 
+3. **DWD (Cleaned Data Layer)**  
+   - Remove duplicates and handle null/invalid values.
+   - Standardize timestamps and account types.
+   - Partitioned by dt.
+
+4. **DWS (Data Warehouse Layer)**
+   - Build transaction fact tables and user dimension tables.
+   - Aggregate daily KPIs (total transaction amount, active users) by account type and region.
+   - Partitioned by dt.
+  
+5. **Hologres (Real-Time Analysis)**
+   - Enable quick KPI queries and dashboards.
+   - Support daily monitoring and reporting.
+   
 ---
 
-### DataWorks Workflow
-Included components:
-- ODPS SQL nodes
-- Resource node (OSS → MaxCompute)
-- Scheduled daily at 2:00 AM
-- Dependencies: ODS → DWD → DWS → Sync to Hologres
-
+### Key Features
+- Partitioning: Efficient queries on large transaction datasets.
+- Scalable SQL ETL: ODS → DWD → DWS using MaxCompute SQL.
+- Real-Time Analytics: Hologres tables for fast KPI queries.
+- Automation: DataWorks DAG to schedule and orchestrate ETL jobs.
+- Extensible: Can add new KPIs or dimensions without changing the pipeline.
+  
 ---
 
 ### How to Run
-1.	Upload data/*.csv to OSS
-2.	Create ODS tables in MaxCompute
-3.	Create DWD & DWS transformations
-4.	Import workflow to DataWorks
-5.	Enable scheduling
-6.	Sync results to Hologres
-
----
-
-## Why This Project Matters 
-- Real data engineering architecture
-- Cloud environment usage
-- End-to-end pipeline thinking
-- Strong SQL & ETL capability
+1.	Upload raw CSV data to MaxCompute ODS table.
+2.	Execute ETL SQL scripts in DataWorks (ODS → DWD → DWS).
+3.	Sync DWS tables to Hologres for real-time analysis.
+4.	Use Jupyter Notebook or BI tools to query KPIs.
+   
