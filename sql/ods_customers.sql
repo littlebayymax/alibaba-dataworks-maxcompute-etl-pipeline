@@ -16,6 +16,6 @@ SELECT
   email STRING,
   country STRING,
   signup_date STRING,
-  CURRENT_TIMESTAMP()
+  CURRENT_TIMESTAMP() AS ingestion_time
 FROM oss_customers_raw;
   
