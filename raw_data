@@ -1,0 +1,11 @@
+transaction_id,account_id,account_type,transaction_amount,transaction_type,transaction_time,region
+T0001,A1001,Savings,1500.50,Deposit,2025-11-22 09:15:23,Central
+T0002,A1002,Checking,200.00,Withdrawal,2025-11-22 10:05:12,East
+T0003,A1003,Savings,5000.00,Deposit,2025-11-22 11:20:45,West
+T0004,A1001,Savings,100.00,Withdrawal,2025-11-22 12:30:00,Central
+T0005,A1004,Checking,750.00,Transfer,2025-11-22 13:45:33,North
+T0006,A1005,Savings,300.00,Deposit,2025-11-22 14:10:50,South
+T0007,A1002,Checking,400.00,Transfer,2025-11-22 15:05:21,East
+T0008,A1006,Savings,2500.00,Deposit,2025-11-22 16:25:44,Central
+T0009,A1003,Savings,1200.00,Withdrawal,2025-11-22 17:15:37,West
+T0010,A1007,Checking,600.00,Deposit,2025-11-22 18:40:10,North
