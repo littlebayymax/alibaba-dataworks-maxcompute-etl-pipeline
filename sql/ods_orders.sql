@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS ods_orders (
   order_id STRING,
   customer_id STRING,
   product_id STRING,
-  order_date DATE,
+  order_date STRING,
   order_amount DOUBLE,
   order_status STRING,
   ingestion_time TIMESTAMP
@@ -16,8 +16,8 @@ SELECT
   order_id STRING,
   customer_id STRING,
   product_id STRING,
-  order_date DATE,
+  order_date STRING,
   order_amount DOUBLE,
   order_status STRING,
-  ingestion_time TIMESTAMP
+  CURRENT_TIMESTAMP() AS ingestion_time
 FROM oss_orders_raw;
