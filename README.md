@@ -1,4 +1,3 @@
-# alibaba-dataworks-maxcompute-etl-pipeline
 # Banking Transaction Analytics Pipeline
 
 ## Project Overview 
