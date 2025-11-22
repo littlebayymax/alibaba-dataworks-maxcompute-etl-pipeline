@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS ods_customers (
 PARTITIONED BY (dt STRING)
 LIFECYCLE 30;
 
-INSERT OVERWRITE TABLE ods_customers PARTITION (dt = '${bizdate})
+INSERT OVERWRITE TABLE ods_customers PARTITION (dt = '${bizdate}')
 SELECT
   customer_id STRING,
   name STRING,
