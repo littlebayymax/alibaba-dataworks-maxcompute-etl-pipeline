@@ -12,8 +12,10 @@ This pipeline includes:
 - Batch ingestion from OSS  
 - Scheduled workflows via DataWorks  
 - MaxCompute SQL transformation (ODS → DWD → DWS)  
-- Real-time serving using Hologres  
+- Real-time serving using Hologres
 
+---
+  
 ### Project Structure
 - `data/`  
   Sample raw CSV files for testing the ETL pipeline
@@ -26,6 +28,7 @@ This pipeline includes:
 - `README.md`  
   Project documentation
 
+---
 
 ### Data Flow Explanation
 1. **Raw Data (OSS)**  
@@ -66,11 +69,15 @@ This pipeline includes:
    		FROM dwd_orders
    		GROUP BY order_date;
 
+---
+
 ### Technologies Used
 - OSS - raw file storage
 - DataWorks - workflow orchestration and scheduling
 - MaxCompute - data warehouse + SQL transformation
 - Hologres - real-time analytics serving
+
+---
 
 ### DataWorks Workflow
 Included components:
@@ -79,6 +86,8 @@ Included components:
 - Scheduled daily at 2:00 AM
 - Dependencies: ODS → DWD → DWS → Sync to Hologres
 
+---
+
 ### How to Run
 1.	Upload data/*.csv to OSS
 2.	Create ODS tables in MaxCompute
@@ -86,6 +95,8 @@ Included components:
 4.	Import workflow to DataWorks
 5.	Enable scheduling
 6.	Sync results to Hologres
+
+---
 
 ## Why This Project Matters 
 - Real data engineering architecture
