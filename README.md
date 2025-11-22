@@ -1,17 +1,18 @@
 # alibaba-dataworks-maxcompute-etl-pipeline
-End-to-end cloud ETL, project using Alibaba Cloud OSS, Dataworks, MaxCompute, and Hologres
+End-to-end cloud ETL project using Alibaba Cloud OSS, DataWorks, MaxCompute, and Hologres.
 
 # Cloud ETL Pipeline (Alibaba Cloud)
-This project demonstrates an end-to-end Cloud ETL pipeline built on Alibaba Cloud OSS, DataWorks, MaxCompute, and Hologres.
+This project demonstrates an end-to-end Cloud ETL pipeline built on Alibaba Cloud OSS, DataWorks, MaxCompute, and Hologres.  
 It simulates a real data engineering workflow used in production environments.
 
 # Architecture Overview
-Data Source → OSS → MaxCompute ODS → MaxCompute DWD → MaxCompute DWS → Hologres 
-This pipeline includes:
-	•	Batch ingestion from OSS
-	•	Scheduled workflows via DataWorks
-	•	MaxCompute SQL transformation (ODS → DWD → DWS)
-	•	Real-time serving using Hologres
+Data Source → OSS → MaxCompute ODS → MaxCompute DWD → MaxCompute DWS → Hologres  
+
+This pipeline includes:  
+- Batch ingestion from OSS  
+- Scheduled workflows via DataWorks  
+- MaxCompute SQL transformation (ODS → DWD → DWS)  
+- Real-time serving using Hologres  
 
 # Project Structure
 cloud-etl-pipeline/
@@ -23,22 +24,24 @@ cloud-etl-pipeline/
 │
 └── README.md            # Project documentation
 
-# Data Flow Explanation
-1. Raw Data (OSS)
-    Raw files such as:
-     - orders.csv
-     - customers.csv
-     - transactions.csv
-    Stored under: oss://project-bucket/raw/orders/
 
-2. ODS Layer (Operational Data Store)
-    Example:
-     CREATE TABLE ods_orders (
-        order_id STRING,
-        customer_id STRING,
-        amount DOUBLE,
-        created_at DATETIME
-     );
+# Data Flow Explanation
+1. **Raw Data (OSS)**  
+   Raw files such as:  
+   - orders.csv  
+   - customers.csv  
+   - transactions.csv  
+   Stored under: `oss://project-bucket/raw/orders/`
+
+2. **ODS Layer (Operational Data Store)**  
+   Example:
+   ```sql
+   CREATE TABLE ods_orders (
+       order_id STRING,
+       customer_id STRING,
+       amount DOUBLE,
+       created_at DATETIME
+   );
 
 3. DWD Layer (Data Warehouse Detail)
     Example:
