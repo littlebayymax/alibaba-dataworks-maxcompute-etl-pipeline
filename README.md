@@ -1,7 +1,7 @@
 # alibaba-dataworks-maxcompute-etl-pipeline
 End-to-end cloud ETL project using Alibaba Cloud OSS, DataWorks, MaxCompute, and Hologres.
 
-## Project Overview - Cloud ETL Pipeline (Alibaba Cloud) 
+## Project Overview - Banking Transaction Analytics Pipeline
 This project demonstrates a complete banking transaction data pipeline using MaxCompute, DataWorks, and Hologres. The pipeline processes raw transaction data, performs data cleaning and transformation, builds a structured data warehouse, and generates real-time KPIs for analysis. It is designed to showcase production-ready data engineering skills suitable for Singapore’s financial industry.
 
 --- 
