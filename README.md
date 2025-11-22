@@ -43,30 +43,33 @@ cloud-etl-pipeline/
        created_at DATETIME
    );
 
-3. DWD Layer (Data Warehouse Detail)
-    Example:
-       CREATE TABLE dwd_orders AS
-          SELECT
-              order_id,
-              customer_id,
-              amount,
-              DATE(created_at) AS order_date
-          FROM ods_orders;
+3. **DWD Layer (Data Warehouse Detail)**
+   Example:
+   ```sql
+   CREATE TABLE dwd_orders AS
+   		SELECT
+   			order_id,
+   			customer_id,
+   			amount,
+   			DATE(created_at) AS order_date
+   		FROM ods_orders;
 
-4. DWS Layer (Data Warehouse Summary)
-    Example:
-       CREATE TABLE dws_daily_gmv AS
-          SELECT
-              order_date,
-              SUM(amount) AS gmv
-           FROM dwd_orders
-           GROUP BY order_date;
+4. **DWS Layer (Data Warehouse Summary)**
+   Example:
+   ```sql
+   CREATE TABLE dws_daily_gmv AS
+   		SELECT
+   			order_date,
+   			SUM(amount) AS gmv
+   		FROM dwd_orders
+   		GROUP BY order_date;
 
 # Technologies Used
-1. OSS - raw file storage
-2. DataWorks - workflow orchestration and scheduling
-3. MaxCompute - data warehouse + SQL transformation
-4. Hologres - real-time analytics serving
+Technologies Used
+OSS - raw file storage
+DataWorks - workflow orchestration and scheduling
+MaxCompute - data warehouse + SQL transformation
+Hologres - real-time analytics serving
 
 # DataWorks Workflow
 Included components:
@@ -74,7 +77,15 @@ Included components:
 	•	Resource node (OSS → MaxCompute)
 	•	Scheduled daily at 2:00 AM
 	•	Dependencies: ODS → DWD → DWS → Sync to Hologres
+	
 Workflow JSON is available in /dataworks/
+Included components:
+ODPS SQL nodes
+Resource node (OSS → MaxCompute)
+Scheduled daily at 2:00 AM
+Dependencies: ODS → DWD → DWS → Sync to Hologres
+Workflow JSON is available in /dataworks/
+<details> <summary>Click to expand workflow example structure</summary>
 
 # How to Run
 1.	Upload data/*.csv to OSS
