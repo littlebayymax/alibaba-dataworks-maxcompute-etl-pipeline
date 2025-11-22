@@ -77,15 +77,6 @@ Included components:
 	•	Resource node (OSS → MaxCompute)
 	•	Scheduled daily at 2:00 AM
 	•	Dependencies: ODS → DWD → DWS → Sync to Hologres
-	
-Workflow JSON is available in /dataworks/
-Included components:
-ODPS SQL nodes
-Resource node (OSS → MaxCompute)
-Scheduled daily at 2:00 AM
-Dependencies: ODS → DWD → DWS → Sync to Hologres
-Workflow JSON is available in /dataworks/
-<details> <summary>Click to expand workflow example structure</summary>
 
 # How to Run
 1.	Upload data/*.csv to OSS
