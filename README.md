@@ -17,16 +17,14 @@ This pipeline includes:
 ---
   
 ### Project Structure
-- `data/`  
-  Sample raw CSV files for testing the ETL pipeline
-- `sql/`  
-  MaxCompute SQL scripts for each layer: ODS, DWD, DWS
-- `dataworks/`  
-  DataWorks workflow definitions and JSON exports
-- `images/`  
-  Architecture diagrams and related visuals
-- `README.md`  
-  Project documentation
+| Folder / File   | Description                                           |
+|-----------------|-------------------------------------------------------|
+| `data/`         | Sample raw CSV files for testing the ETL pipeline    |
+| `sql/`          | MaxCompute SQL scripts (ODS, DWD, DWS)              |
+| `dataworks/`    | DataWorks workflow definitions and JSON exports     |
+| `images/`       | Architecture diagrams and visuals                   |
+| `README.md`     | Project documentation                                |
+
 
 ---
 
