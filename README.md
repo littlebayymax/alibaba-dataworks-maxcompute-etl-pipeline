@@ -17,14 +17,10 @@ This project demonstrates a complete banking transaction data pipeline using Max
 - SQL & Partitioning: MaxCompute SQL, partitioned by transaction date (dt)
 - Visualization: Jupyter Notebook with pandas/matplotli
 
----
-
 ## Data Source
 Simulated banking transactions including:
 - transaction_id, account_id, account_type, transaction_amount
 - transaction_type, transaction_time, region
-
----
   
 ### Project Structure
 | Folder / File         | Description                                           |
