@@ -3,8 +3,6 @@
 ## Project Overview 
 This project demonstrates a complete banking transaction data pipeline using MaxCompute, DataWorks, and Hologres. The pipeline processes raw transaction data, performs cleaning and transformation, builds a structured data warehouse, and generates real-time KPIs for analysis. 
 
---- 
-
 ### Key Objectives:
 - Process raw banking transactions (ODS layer)
 - Clean and standardize data (DWD layer)
