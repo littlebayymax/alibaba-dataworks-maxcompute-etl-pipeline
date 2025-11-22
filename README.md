@@ -1,16 +1,17 @@
 # alibaba-dataworks-maxcompute-etl-pipeline
+# Banking Transaction Analytics Pipeline
 
-## Project Overview - Banking Transaction Analytics Pipeline
-This project demonstrates a complete banking transaction data pipeline using MaxCompute, DataWorks, and Hologres. The pipeline processes raw transaction data, performs data cleaning and transformation, builds a structured data warehouse, and generates real-time KPIs for analysis. 
+## Project Overview 
+This project demonstrates a complete banking transaction data pipeline using MaxCompute, DataWorks, and Hologres. The pipeline processes raw transaction data, performs cleaning and transformation, builds a structured data warehouse, and generates real-time KPIs for analysis. 
 
 --- 
 
 ### Key Objectives:
-1. Process raw banking transactions (ODS layer).
-2. Clean and standardize data (DWD layer).
-3. Build fact tables and dimension tables for analysis (DWS layer).
-4. Support real-time analytics with Hologres.
-5. Automate ETL workflows using DataWorks.
+- Process raw banking transactions (ODS layer)
+- Clean and standardize data (DWD layer)
+- Build fact tables and dimension tables for analysis (DWS layer)
+- Enable real-time analytics with Hologres
+- Automate ETL workflows using DataWorks
 
 ---
 
@@ -19,7 +20,7 @@ This project demonstrates a complete banking transaction data pipeline using Max
 - Real-Time Analytics: Hologres
 - ETL Orchestration: DataWorks DAG
 - SQL & Partitioning: MaxCompute SQL, partitioned by transaction date (dt)
-- Visualization: Jupyter Notebook with SQL analysis or optional Tableau / Superset
+- Visualization: Jupyter Notebook with pandas/matplotli
 
 ---
 
@@ -33,7 +34,7 @@ Simulated banking transactions including:
 ### Project Structure
 | Folder / File         | Description                                           |
 |-----------------------|-------------------------------------------------------|
-| `raw_data/`           | transactions.csv # raw transaction data               |
+| `raw_data/`           | sample raw transaction data                           |
 | `dataworks_projects/` | MaxCompute SQL scripts (ODS, DWD, DWS)                |
 | `hologres/`           | hologres_daily_transactions.sql                       |
 | `notebooks/`          | transaction_kpi_analysis.ipynb                        |
@@ -62,18 +63,17 @@ Simulated banking transactions including:
    
 ---
 
-### Key Features
-- Partitioning: Efficient queries on large transaction datasets.
-- Scalable SQL ETL: ODS → DWD → DWS using MaxCompute SQL.
-- Real-Time Analytics: Hologres tables for fast KPI queries.
-- Automation: DataWorks DAG to schedule and orchestrate ETL jobs.
-- Extensible: Can add new KPIs or dimensions without changing the pipeline.
-  
----
+### Why This Project Stands Out
+- Production-ready data engineering workflow (ODS → DWD → DWS → Hologres)
+- Partitioned tables for scalable analytics
+- Real-time KPI analysis using Hologres
+- ETL automation with DataWorks
+- Sample data simulates realistic banking transactions
+- Ready for BI tools / dashboards (Tableau, Superset, or Python)
 
 ### How to Run
 1.	Upload raw CSV data to MaxCompute ODS table.
 2.	Execute ETL SQL scripts in DataWorks (ODS → DWD → DWS).
 3.	Sync DWS tables to Hologres for real-time analysis.
-4.	Use Jupyter Notebook or BI tools to query KPIs.
+4.	Open notebooks/transaction_kpi_analysis.ipynb to run KPI queries and generate plots.
    
