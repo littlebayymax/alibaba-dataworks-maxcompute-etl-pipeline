@@ -10,8 +10,6 @@ This project demonstrates a complete banking transaction data pipeline using Max
 - Enable real-time analytics with Hologres
 - Automate ETL workflows using DataWorks
 
----
-
 ## Tech Stack
 - Data Storage & Processing: MaxCompute (ODS/DWD/DWS)
 - Real-Time Analytics: Hologres
